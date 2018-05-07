@@ -54,7 +54,6 @@
                             <div class=”col-md-6">
                                 <select class=”form-control” name="type" id=”type”>
                                     <option value=admin>Admin</option>
-                                    <option value=super_admin>Super Admin</option>
                                     <option value=member>Member</option>
                                 </select>
                             </div>

@@ -48,13 +48,7 @@ class AllprofileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function showq($id)
-    {
-        $query = DB::table('questions')->select('*')->where('user_id', '=', $id );
-        $questions = $query->get();
-        //dd(count($questions));
-        return view('home')->with('questions', $questions);
-    }
+
     public function destroy($id)
     {
         $profile = Profile::find($profile);
