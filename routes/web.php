@@ -22,10 +22,24 @@ Route::patch('/user/{user_id}/profile/{profile_id}', 'ProfileController@update')
 Route::delete('/user/{user_id}/profile/{profile_id}', 'ProfileController@destroy')->name('profile.destroy');
 Route::get('/questions/{question_id}/answers/create', 'AnswerController@create')->name('answers.create');
 Route::get('/questions/{question_id}/answers/{answer_id}', 'AnswerController@show')->name('answers.show');
-Route::get('/questions/{question_id}/answers/{answer_id}/edit', 'AnswerController@edit')->name('answers.edit');
 Route::post('/questions/{question_id}/answers/', 'AnswerController@store')->name('answers.store');
-Route::patch('/questions/{question_id}/answer/{answer_id}', 'AnswerController@update')->name('answers.update');
-Route::delete('/questions/{question_id}/answer/{answer_id}', 'AnswerController@destroy')->name('answers.destroy');
+
+
+Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
+{
+    //Route::match(['get', 'post'], '/adminOnlyPage/', 'HomeController@admin');
+    Route::get('/user/profile/show/{user_id}', 'HomeController@show')->name('home.show');
+    Route::get('/user/{user_id}/profile/{profile_id}/show', 'AllprofileController@show')->name('allprofile.show');
+    Route::get('/user/profile/showq/{user_id}', 'AllprofileController@showq')->name('allprofile.showq');
+    Route::get('/questions/{question_id}/answers/{answer_id}/edit', 'AnswerController@edit')->name('answers.edit');
+    Route::delete('/questions/{question_id}/answer/{answer_id}', 'AnswerController@destroy')->name('answers.destroy');
+    Route::patch('/questions/{question_id}/answer/{answer_id}', 'AnswerController@update')->name('answers.update');
+});
+Route::group(['middleware' => 'App\Http\Middleware\MemberMiddleware'], function()
+{
+    //Route::match(['get', 'post'], '/memberOnlyPage/', 'HomeController@member');
+
+});
 Route::resources([
     'questions' => 'QuestionController',
 ]);
