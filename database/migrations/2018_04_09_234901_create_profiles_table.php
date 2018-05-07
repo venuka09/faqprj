@@ -18,6 +18,7 @@ class CreateProfilesTable extends Migration
             $table->integer('user_id');
             $table->string('fname')->nullable();
             $table->string('lname')->nullable();
+            $table->string('type')->nullable();
             $table->longText('body')->nullable();
             $table->timestamps();
         });
