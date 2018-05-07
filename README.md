@@ -1,7 +1,11 @@
-# faqprj
-To run the faq Project
+# final project
+To add access control for Admin and Member
 
-1. git clone git@github.com:venuka09/faqprj.git
-2. CD into faq and composer install 
-3. cp .env.example to .env
-4.setup database / with sqliteor other (https://laravel.com/docs/5.6/database)
+EPIC:
+Answering Questions asked by different Users
+
+User Stories:
+1.	As a MEMBER, I would like to CREATE NEW QUESTIONS, so THAT I CAN GET ANSWERS FOR THEM
+2.	As an ADIM, I would like to VIEW ALL THE PROFILES IN THE DATABASE, so THAT I CAN NAVIGATE TO QUESTIONS ASKED
+3.	As an ADMIN, I would like to VIEW QUESTIONS RELATED TO A PARTICULAR PROFILE, so THAT I CAN RESPONSE TO QUESTIONS
+4.	As a ADMIN, I would like to UPDATE RESPONSES ADDED, so THAT EVERYONE IS AWARE ABOUT CHANGES MADE
