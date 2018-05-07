@@ -25,20 +25,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-        /**
-        if (Auth::user() && Auth::user()->type == 'admin'){
-            $user = Auth::user();
-            $profiles = $user->profile()->paginate(10);
-            $query = DB::table('profiles')->select('*');
-            $profiles = $query->get();
-            //dd($profiles);
-            return view('allprofile')->with('profiles', $profiles);
-        }
-        else {*/
             $user = Auth::user();
             $questions = $user->questions()->paginate(6);
             return view('home')->with('questions', $questions);
-        //}
+    }
+
+
+    public function show($id)
+    {
+        $query = DB::table('questions')->select('*')->where('user_id', '=', $id );
+        $questions = $query->get();
+        //dd(count($questions));
+        return view('profilequestion')->with('questions', $questions);
     }
     public function admin(Request $req)
     {

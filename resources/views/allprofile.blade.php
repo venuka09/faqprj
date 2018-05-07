@@ -12,6 +12,7 @@
                 <th>FIRST NAME</th>
                 <th>LAST NAME</th>
                 <th>BODY</th>
+                <th>QUESTIONS</th>
             </tr>
             </thead>
             <tbody>
@@ -22,6 +23,11 @@
                     <td>{{$profile->fname}}</td>
                     <td>{{$profile->lname}}</td>
                     <td>{{$profile->body}}</td>
+                    <td><a class="btn btn-primary float-right"
+                            href="{{ route('home.show',['id' => $profile->user_id]) }}">
+                            View
+                        </a>
+                    </td>
                 </tr>
             @endforeach
 

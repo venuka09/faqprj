@@ -28,10 +28,9 @@ Route::post('/questions/{question_id}/answers/', 'AnswerController@store')->name
 Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
 {
     //Route::match(['get', 'post'], '/adminOnlyPage/', 'HomeController@admin');
-
+    Route::get('/user/profile/show/{user_id}', 'HomeController@show')->name('home.show');
     Route::get('/user/{user_id}/profile/{profile_id}/show', 'AllprofileController@show')->name('allprofile.show');
-    Route::resources([
-        'profiles' => 'AllprofileController',]);
+    Route::get('/user/profile/showq/{user_id}', 'AllprofileController@showq')->name('allprofile.showq');
     Route::get('/questions/{question_id}/answers/{answer_id}/edit', 'AnswerController@edit')->name('answers.edit');
     Route::delete('/questions/{question_id}/answer/{answer_id}', 'AnswerController@destroy')->name('answers.destroy');
     Route::patch('/questions/{question_id}/answer/{answer_id}', 'AnswerController@update')->name('answers.update');

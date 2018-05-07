@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Question;
+use App\Profile;
+use App\User;
 
 class AllprofileController extends Controller
 {
@@ -45,6 +48,13 @@ class AllprofileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function showq($id)
+    {
+        $query = DB::table('questions')->select('*')->where('user_id', '=', $id );
+        $questions = $query->get();
+        //dd(count($questions));
+        return view('home')->with('questions', $questions);
+    }
     public function destroy($id)
     {
         $profile = Profile::find($profile);
