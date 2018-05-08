@@ -20,4 +20,11 @@ class UsertypeTest extends TestCase
         $type = $user->type;
         $this->assertContains($type, ["admin", "member"]);
     }
+    /**
+    public function testAdmin()
+    {
+        $user = User::where('type', '=', 'admin')->first();
+        $type= $user->actingAs($user);
+        $this->assertTrue($type);
+    }*/
 }

@@ -22,7 +22,7 @@ class AnswerController extends Controller
      */
     public function create($question)
     {
-        $answer = new Answer;
+        $answer = new Answer();
         $edit = FALSE;
         return view('answerForm', ['answer' => $answer,'edit' => $edit, 'question' =>$question  ]);
     }
